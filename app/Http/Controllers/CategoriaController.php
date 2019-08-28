@@ -47,6 +47,7 @@ class CategoriaController extends Controller
             $categoria = new Categoria();
             $categoria->codigo = $request->codigo;
             $categoria->nombre = $request->nombre;
+            $categoria->id_empresa = $request->id_empresa;
 
             DB::transaction(function () use ($categoria) {
                 $categoria->save();

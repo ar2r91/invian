@@ -13,10 +13,16 @@ class Categoria extends Migration
      */
     public function up()
     {
-        Schema::create('cateogcategoriaira', function (Blueprint $table) {
+        Schema::create('categoria', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('codigo');
             $table->string('nombre');
+
+            $table->integer('id_empresa')->unsigned();
+        });
+
+        Schema::table('categoria', function ($table) {
+            $table->foreign('id_empresa')->references('id')->on('empresa');
         });
     }
 
